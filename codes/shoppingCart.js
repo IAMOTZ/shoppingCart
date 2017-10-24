@@ -18,7 +18,17 @@ class ShoppingCart {
             this._total -= item.price * quantity;
             this._items[item.name] -= quantity;
         } else {
-            console.log('This item does not exist, try Adding it');
+            return 'This item does not exist, try Adding it';
+        }
+    }
+
+    checkout(payment) {
+        if(payment < this._total) {
+           return `You need extra ${this._total - payment} to checkout`;
+        } else {
+            this._items = {};
+            this._total = 0;
+            return 'You have successfully checked out';
         }
     }
 
@@ -51,4 +61,5 @@ class Item {
 
 let shoppingCart = new ShoppingCart();
 shoppingCart.addItem('bobo', 3, 60, 20);
+shoppingCart.checkout(144)
 console.log(shoppingCart.total);
