@@ -12,6 +12,16 @@ class ShoppingCart {
         this._items[item.name] = quantity;
     }
 
+    removeItem(name, quantity, price, discount) {
+        let item = new Item(name, price, discount);
+        if(this._items[item.name]) {
+            this._total -= item.price * quantity;
+            this._items[item.name] -= quantity;
+        } else {
+            console.log('This item does not exist, try Adding it');
+        }
+    }
+
     get total() {
         return this._total;
     }
