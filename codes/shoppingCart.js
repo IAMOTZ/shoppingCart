@@ -32,6 +32,13 @@ class ShoppingCart {
         }
     }
 
+    viewItems() {
+        console.log(`Items \t\t Amount`)
+        for(let item in this._items) {
+            console.log(`${item} \t\t ${this._items[item]}`)
+        }
+    }
+
     get total() {
         return this._total;
     }
@@ -61,5 +68,3 @@ class Item {
 
 let shoppingCart = new ShoppingCart();
 shoppingCart.addItem('bobo', 3, 60, 20);
-shoppingCart.checkout(144)
-console.log(shoppingCart.total);
