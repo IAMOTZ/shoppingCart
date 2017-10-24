@@ -66,5 +66,4 @@ class Item {
     }
 }
 
-let shoppingCart = new ShoppingCart();
-shoppingCart.addItem('bobo', 3, 60, 20);
+module.exports = ShoppingCart;
