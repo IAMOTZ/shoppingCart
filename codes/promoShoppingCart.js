@@ -12,8 +12,8 @@ class PromoShoppingCart extends ShoppingCart {
     // Allow adding 20 item without billing the user.
     addItem(name, quantity, price, discount) {
         let item = new Item(name, price, discount); 
-        this._promoValue ++;
-        if(this._promoValue <= 20) {
+        this._promoValue --;
+        if(this._promoValue >= 0) {
             this._items[item.name] = quantity;
         } else {
             this._total += quantity * item.price;
@@ -23,7 +23,7 @@ class PromoShoppingCart extends ShoppingCart {
 
     removeItem(name, quantity, price, discount) {
         let item = new Item(name, price, discount);
-        this._promoValue --;
+        this._promoValue ++;
         if(this._items[item.name]) {
             this._total -= item.price * quantity;
             this._items[item.name] -= quantity;
