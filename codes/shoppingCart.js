@@ -2,10 +2,20 @@
 
 class ShoppingCart {
     constructor(){
-        this.total = 0;
-        this.items = {};
+        this._total = 0;
+        this._items = {};
     }
-}
+
+    addItem(name, quantity, price, discount) {
+        let item = new Item(name, price, discount); 
+        this._total += quantity * item.price;
+        this._items[item.name] = quantity;
+    }
+
+    get total() {
+        return this._total;
+    }
+ }
 
 class Item {
     constructor(name, price, discount) {
@@ -28,3 +38,7 @@ class Item {
         }
     }
 }
+
+let shoppingCart = new ShoppingCart();
+shoppingCart.addItem('bobo', 3, 60, 20);
+console.log(shoppingCart.total);
