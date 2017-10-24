@@ -4,12 +4,14 @@ class ShoppingCart {
     constructor(){
         this._total = 0;
         this._items = {};
+        this._itemNumber = 0;
     }
 
     addItem(name, quantity, price, discount) {
         let item = new Item(name, price, discount); 
         this._total += quantity * item.price;
         this._items[item.name] = quantity;
+        this._itemNumber ++;
     }
 
     removeItem(name, quantity, price, discount) {
@@ -17,6 +19,7 @@ class ShoppingCart {
         if(this._items[item.name]) {
             this._total -= item.price * quantity;
             this._items[item.name] -= quantity;
+            this._itemNumber --;
         } else {
             return 'This item does not exist, try Adding it';
         }
@@ -28,6 +31,7 @@ class ShoppingCart {
         } else {
             this._items = {};
             this._total = 0;
+            this._itemNumber = 0;
             return 'You have successfully checked out';
         }
     }
@@ -37,6 +41,7 @@ class ShoppingCart {
         for(let item in this._items) {
             console.log(`${item} \t\t ${this._items[item]}`)
         }
+        console.log(`You have a total of ${this._itemNumber} items.`)
     }
 
     get total() {
