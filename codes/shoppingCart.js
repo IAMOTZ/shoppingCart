@@ -66,4 +66,5 @@ class Item {
     }
 }
 
-module.exports = ShoppingCart;
+module.exports.ShoppingCart = ShoppingCart;
+module.exports.Item = Item;
