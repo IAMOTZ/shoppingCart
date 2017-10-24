@@ -21,6 +21,17 @@ class PromoShoppingCart extends ShoppingCart {
         }
     }
 
+    removeItem(name, quantity, price, discount) {
+        let item = new Item(name, price, discount);
+        this._promoValue --;
+        if(this._items[item.name]) {
+            this._total -= item.price * quantity;
+            this._items[item.name] -= quantity;
+        } else {
+            return 'This item does not exist, try Adding it';
+        }
+    }
+
     get promoValue() {
         return this._promoValue;
     } 
