@@ -87,5 +87,12 @@ class Item {
     }
 }
 
+let MyCart = new ShoppingCart();
+MyCart.addItem('Keyboard', 2, 400, 20);
+MyCart.addItem('mouse', 2, 300, 10);
+MyCart.addItem('Joystick', 4, 500);
+
+MyCart.viewItems();
+
 module.exports.ShoppingCart = ShoppingCart;
 module.exports.Item = Item;
