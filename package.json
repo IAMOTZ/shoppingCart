@@ -1,10 +1,11 @@
 {
-  "name": "shoppingCart",
+  "name": "shoppingcart",
   "version": "1.0.0",
   "description": "An OOP program to implement a shopping cart software",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node codes/shoppingCart.js"
   },
   "repository": {
     "type": "git",
